@@ -1,145 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TechGate Dashboard</title>
+    <meta charset="UTF-8">
+    <title>Viren | Software Engineer - Neptune Controls</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
 
-<style>
-body{background:#000;color:white;overflow:hidden;font-family:Inter,sans-serif}
-.card{background:rgba(0,0,0,.8);border-radius:12px;padding:15px}
-.dashboard-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;height:calc(100vh - 60px);padding:10px}
-@media(max-width:1400px){.dashboard-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:900px){.dashboard-grid{grid-template-columns:repeat(1,1fr)}}
-.gauge-container{position:relative;height:200px}
-.gauge-value{position:absolute;top:45%;left:50%;transform:translate(-50%,-50%);font-size:1.5rem;font-weight:bold}
-</style>
+        body {
+            background: #0f172a;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0ea5e9, #2563eb);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        section {
+            padding: 60px 10%;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #38bdf8;
+        }
+
+        .card {
+            background: #020617;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(56,189,248,0.1);
+        }
+
+        .skills span {
+            display: inline-block;
+            background: #1e293b;
+            padding: 8px 14px;
+            border-radius: 20px;
+            margin: 6px;
+            font-size: 0.9rem;
+            border: 1px solid #334155;
+        }
+
+        .projects h3 {
+            color: #7dd3fc;
+            margin-bottom: 5px;
+        }
+
+        footer {
+            background: #020617;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media(max-width:768px){
+            header h1 { font-size: 2.2rem; }
+            section { padding: 40px 6%; }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- TOP BAR -->
-<div class="flex justify-between items-center p-3 border-b border-gray-800 bg-black">
-  <div class="flex items-center gap-2">
-    <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-    <span class="font-bold">TechGate Dashboard</span>
-  </div>
-  <div id="clock" class="text-sm bg-gray-900 px-3 py-1 rounded-full">
-    <span id="time">--:--</span> <span id="ampm">AM</span>
-  </div>
-</div>
+<header>
+    <h1>Viren</h1>
+    <p>Software Engineer @ Neptune Controls</p>
+    <p>AI • Computer Vision • Video Analytics</p>
+</header>
 
-<!-- GRID -->
-<div class="dashboard-grid">
+<section>
+    <h2>About Me</h2>
+    <div class="card">
+        <p>
+            I am a Software Engineer at Neptune Controls working on intelligent video analytics systems.
+            My expertise lies in building real-time AI-based applications such as people counting,
+            ANPR (Automatic Number Plate Recognition), person re-identification, and multi-camera tracking systems.
+            I focus on developing production-ready computer vision solutions using deep learning and optimized pipelines.
+        </p>
+    </div>
+</section>
 
-<div class="card">Total Energy<br><span id="kpi1" class="text-2xl">0</span> kWh</div>
-<div class="card">Solar Production<br><span id="kpi2" class="text-2xl">0</span> kWh</div>
-<div class="card">Energy Saved<br><span id="kpi3" class="text-2xl">0</span> kWh</div>
-<div class="card">Carbon Saved<br><span id="kpi4" class="text-2xl">0</span> %</div>
-<div class="card">Cost Savings<br><span id="kpi5" class="text-2xl">$0</span></div>
+<section>
+    <h2>Technical Skills</h2>
+    <div class="card skills">
+        <span>Python</span>
+        <span>OpenCV</span>
+        <span>YOLOv8</span>
+        <span>Deep Learning</span>
+        <span>Computer Vision</span>
+        <span>Flask</span>
+        <span>Multi-Camera Systems</span>
+        <span>RTSP Streaming</span>
+        <span>Person Re-Identification</span>
+        <span>ANPR</span>
+        <span>SQL Server</span>
+        <span>Docker</span>
+        <span>Linux</span>
+        <span>REST APIs</span>
+    </div>
+</section>
 
-<div class="card col-span-2">
-  <div>Solar Energy</div>
-  <div class="gauge-container">
-    <canvas id="solarGauge"></canvas>
-    <div class="gauge-value" id="solarText">0%</div>
-  </div>
-</div>
+<section class="projects">
+    <h2>Projects</h2>
 
-<div class="card col-span-2">
-  <div>Net Zero Progress</div>
-  <div class="gauge-container">
-    <canvas id="netZeroGauge"></canvas>
-    <div class="gauge-value" id="netZeroText">0%</div>
-  </div>
-</div>
+    <div class="card">
+        <h3>Multi-Camera People Counting System</h3>
+        <p>
+            Developed a real-time footfall analytics platform using YOLOv8 and ROI-based tracking.
+            Supports dynamic camera addition, unidirectional and bidirectional counting, live dashboards,
+            and centralized Pan-India statistics.
+        </p>
+    </div>
 
-<div class="card col-span-2">
-  <div>Radar</div>
-  <canvas id="radarChart"></canvas>
-</div>
+    <div class="card">
+        <h3>Automatic Number Plate Recognition (ANPR)</h3>
+        <p>
+            Built an end-to-end ANPR pipeline using vehicle detection, plate detection, OCR with EasyOCR/Tesseract,
+            regex-based postprocessing, and Excel/DB logging. Optimized for Indian number plate formats.
+        </p>
+    </div>
 
-<div class="card col-span-2">
-  <div>Sankey</div>
-  <div id="sankeyChart"></div>
-</div>
+    <div class="card">
+        <h3>Cross-Camera Person Re-Identification</h3>
+        <p>
+            Implemented person re-identification using OSNet and deep embeddings to track individuals
+            across multiple camera feeds, enabling intelligent search and movement analysis.
+        </p>
+    </div>
 
-<div class="card col-span-2">
-  <div>Stacked Bar</div>
-  <canvas id="stackedBarChart"></canvas>
-</div>
+    <div class="card">
+        <h3>Color-Based Intelligent Search System</h3>
+        <p>
+            Developed an HSV-based color search application to filter people based on clothing colors
+            across live video streams with instant retrieval and gallery view.
+        </p>
+    </div>
+</section>
 
-</div>
+<section>
+    <h2>Experience</h2>
+    <div class="card">
+        <h3>Software Engineer — Neptune Controls</h3>
+        <p>
+            Working on AI-powered surveillance and analytics solutions for smart cities and enterprises.
+            Responsible for developing scalable backend pipelines, real-time video processing, dashboard integration,
+            and deployment-ready systems.
+        </p>
+    </div>
+</section>
 
-<script>
-// CLOCK
-function updateClock(){
- const n=new Date()
- let h=n.getHours(),m=n.getMinutes().toString().padStart(2,'0')
- let ap=h>=12?'PM':'AM';h=h%12||12
- time.textContent=`${h}:${m}`;ampm.textContent=ap
-}
-setInterval(updateClock,1000);updateClock()
+<section>
+    <h2>Contact</h2>
+    <div class="card">
+        <p>Email: viren@example.com</p>
+        <p>LinkedIn: <a href="#">linkedin.com/in/viren</a></p>
+        <p>GitHub: <a href="#">github.com/viren</a></p>
+    </div>
+</section>
 
-// RANDOM
-const rnd=(a,b)=>Math.floor(Math.random()*(b-a+1))+a
+<footer>
+    © 2026 Viren | Software Engineer @ Neptune Controls
+</footer>
 
-// GAUGES
-function makeGauge(id,val){
- return new Chart(document.getElementById(id),{
- type:'doughnut',
- data:{datasets:[{data:[val,100-val],backgroundColor:['#00ff9d','#222'],borderWidth:0}]},
- options:{rotation:270,circumference:180,cutout:'80%',plugins:{legend:{display:false}}}
- })
-}
-
-let solarGauge=makeGauge('solarGauge',70)
-let netGauge=makeGauge('netZeroGauge',60)
-
-// RADAR
-let radar=new Chart(radarChart,{type:'radar',
-data:{labels:['Jan','Feb','Mar','Apr','May'],datasets:[{label:'Use',data:[40,60,50,70,65],borderColor:'#00ff9d'}]},
-options:{plugins:{legend:{display:false}}}
-})
-
-// BAR
-let bar=new Chart(stackedBarChart,{type:'bar',
-data:{labels:['0','4','8','12','16','20'],datasets:[
-{label:'Elec',data:[5,10,15,12,14,18],backgroundColor:'#00ff9d'},
-{label:'Gas',data:[3,6,8,10,12,14],backgroundColor:'#00bcd4'}]},
-options:{scales:{x:{stacked:true},y:{stacked:true}}}
-})
-
-// SANKEY
-function drawSankey(){
- Plotly.newPlot('sankeyChart',[{
- type:'sankey',
- node:{label:['Solar','Grid','Use','Loss'],color:['#ffc107','#4caf50','#2196f3','#999']},
- link:{source:[0,1,2],target:[2,2,3],value:[10,15,8]}
-}],{paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(0,0,0,0)',font:{color:'#aaa'}},{displayModeBar:false})
-}
-drawSankey()
-
-// KPI UPDATE
-function updateKPIs(){
- kpi1.textContent=rnd(2300,2600)
- kpi2.textContent=rnd(1200,1600)
- kpi3.textContent=rnd(500,900)
- kpi4.textContent=rnd(40,80)
- kpi5.textContent='$'+rnd(10000,30000)
-
- let s=rnd(60,90), n=rnd(50,80)
- solarGauge.data.datasets[0].data=[s,100-s]; solarGauge.update()
- netGauge.data.datasets[0].data=[n,100-n]; netGauge.update()
- solarText.textContent=s+'%'; netZeroText.textContent=n+'%'
-}
-setInterval(updateKPIs,2000);updateKPIs()
-
-</script>
 </body>
 </html>
