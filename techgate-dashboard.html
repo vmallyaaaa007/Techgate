@@ -837,29 +837,7 @@
         });
     </script>
 </html>
-            } else {
-                aqiElement.className = 'text-4xl font-bold unhealthy';
-            }
             
-            // Add hover effects to cards
-            document.querySelectorAll('.card').forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px)';
-                    this.style.boxShadow = '0 10px 25px -5px rgba(0, 255, 157, 0.1)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                    this.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.5)';
-                });
-            });
-        });
-        
-        // Handle window resize
-        window.addEventListener('resize', function() {
-            // Recreate charts on resize for responsiveness
-            createSankeyDiagram();
-        });
     </script>
 </body>
 </html>
